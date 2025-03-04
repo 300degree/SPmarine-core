@@ -1,0 +1,8 @@
+.git
+.gitignore
+.dockerignore
+.clang-format
+docker-compose.yml
+compose.yml
+Dockerfile
+tests
