@@ -1,6 +1,11 @@
-# set ( ENTIIES entities/Barge.cpp )
-set ( SERVICES services/BargeService.cpp )
+project( domain )
+set (
+    SOURCES services/BargeService.cpp
+            entities/Barges.cpp
+)
 
-add_library( domain ${SERVICES} )
-target_include_directories( domain PRIVATE ${CMAKE_SOURCE_DIR}/include )
-# target_link_libraries( domain PRIVATE entities interfaces )
+add_library( domain ${SOURCES} )
+target_include_directories(
+    domain PRIVATE ${CMAKE_SOURCE_DIR}/include 
+                   ${crow_SOURCE_DIR}/include
+                   ${nlohmann_json_SOURCE_DIR}/include )

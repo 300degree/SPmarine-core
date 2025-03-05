@@ -1,9 +1,12 @@
+project( app )
 add_subdirectory( adapters )
 add_subdirectory( application )
 add_subdirectory( domain )
 add_subdirectory( ports )
 
-add_executable( SPmarine-core main.cpp )
-target_include_directories( SPmarine-core PRIVATE ${CMAKE_SOURCE_DIR}/include )
-# target_link_libraries( CMAKE_PROJECT_NAME PRIVATE adapters application domain ports )
-target_link_libraries( SPmarine-core PRIVATE domain adapters )
+add_executable( app main.cpp Server.cpp )
+target_include_directories(
+    app PUBLIC ${nlohmann_json_SOURCE_DIR}/include
+               ${CMAKE_SOURCE_DIR}/include 
+               ${crow_SOURCE_DIR}/include )
+target_link_libraries( app PRIVATE domain adapters )

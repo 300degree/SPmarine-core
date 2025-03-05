@@ -19,7 +19,7 @@ RUN apk add --no-cache \
 	curl
 
 WORKDIR /app /app
-COPY --from=builder /app/build/src/SPmarine-core /app/SPmarine-core
+COPY --from=builder /app/build/bin/app /app/app
 EXPOSE 5000
 
-CMD [ "./SPmarine-core" ]
+CMD [ "./app" ]
