@@ -13,7 +13,7 @@ describe('DataBaseConnection', () => {
 					type: 'postgres',
 					host:
 						process.env.DB_HOST ||
-						'localhost',
+						'62.72.30.12',
 					port:
 						Number(process.env.DB_PORT) ||
 						5432,

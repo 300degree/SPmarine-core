@@ -2,7 +2,7 @@ root = true
 
 [*.{js,ts,mjs}]
 charset = utf-8
-indent_size = 8
+indent_size = 4
 insert_final_newline = true
 end_of_line = lf
 indent_style = tab
@@ -24,4 +24,3 @@ end_of_line = lf
 insert_final_newline = true
 indent_style = space
 indent_size = 2
-
