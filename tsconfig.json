@@ -11,7 +11,7 @@
 		"outDir": "./dist",
 		"baseUrl": "./",
 		"paths": {
-			// "@/*": ["src/*"],
+			"@*": ["src/*"],
 			"@controllers/*": ["src/controllers/*"],
 			"@entities/*": ["src/entities/*"],
 			"@interfaces/*": ["src/interfaces/*"],
@@ -25,7 +25,7 @@
 		"skipLibCheck": true,
 		"strictNullChecks": true,
 		"forceConsistentCasingInFileNames": true,
-		"noImplicitAny": false,
+		"noImplicitAny": true,
 		"strictBindCallApply": false,
 		"noFallthroughCasesInSwitch": false
 	}
