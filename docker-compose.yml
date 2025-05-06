@@ -1,0 +1,27 @@
+services:
+  mysql:
+    container_name: db
+    image: mysql:8.0-debian
+    restart: always
+    environment:
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+    ports:
+      - 3306:3306
+    volumes:
+      - ./db_data:/var/lib/mysql
+
+  phpmyadmin:
+    container_name: myadmin
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: 'mysql'
+    depends_on:
+      - mysql
+    ports:
+      - 18080:80
+
+volumes:
+  db_data:

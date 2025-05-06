@@ -1,3 +1,5 @@
 *.json
+*.yaml
+*.yml
 tests/**/*.ts
 tests/**/*.spec.ts
