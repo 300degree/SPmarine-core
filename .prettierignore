@@ -1,0 +1,3 @@
+*.json
+tests/**/*.ts
+tests/**/*.spec.ts
