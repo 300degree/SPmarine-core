@@ -4,10 +4,11 @@ root = true
 charset = utf-8
 indent_size = 4
 insert_final_newline = true
+max_line_length = 120
 end_of_line = lf
 indent_style = tab
 
-[scripts/*.{bash,sh,zsh,py}]
+[scripts/*.{bash,sh,py}]
 indent_size = 4
 indent_style = tab
 
