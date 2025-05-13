@@ -1,14 +1,9 @@
-/** @format */
-
-import { Column, PrimaryColumn } from "typeorm";
+import { Column, PrimaryColumn } from 'typeorm';
 
 export abstract class BaseEntity {
+	@PrimaryColumn({ name: 'ID', type: 'varchar', primary: true })
+	public id: string;
 
-        @PrimaryColumn({ type: "varchar", primary: true })
-        public id: string | number;
-
-        @Column({ type: "varchar" })
-        public name: string;
-
+	@Column({ name: 'NAME', type: 'varchar' })
+	public name: string;
 }
-

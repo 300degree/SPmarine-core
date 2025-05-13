@@ -1,20 +1,19 @@
 import { Controller, HttpException, HttpStatus, Get, Post, Body } from '@nestjs/common';
 
-import { TugboatServiceImpl } from '@services/TugboatServiceImpl';
-import { TugboatResponseDto } from '@dto/Response';
-import { TugboatRequestDTO } from '@dto/Request';
+import { OrderServiceImpl } from '@services/OrderServiceImpl';
+import { OrderRequestDTO } from '@dto/Request';
 
 @Controller({ path: '/v1' })
-export class TugboatController {
-	constructor(private readonly service: TugboatServiceImpl) {}
+export class OrderController {
+	constructor(private readonly service: OrderServiceImpl) {}
 
 	/**
 	 * @brief
 	 *
 	 * @returns
 	 */
-	@Get('/tugboats')
-	public async getAll(): Promise<ReturnType<TugboatServiceImpl['getAll']>> {
+	@Get('/orders')
+	public async getAll() {
 		try {
 			return await this.service.getAll();
 		} catch (e) {
@@ -29,15 +28,10 @@ export class TugboatController {
 		}
 	}
 
-	/**
-	 * @brief
-	 *
-	 * @returns
-	 */
-	@Post('/tugboats')
-	public async createNewTugboat(@Body() params: TugboatRequestDTO) {
+	@Post('/orders')
+	public async createNewOrder(@Body() params: OrderRequestDTO) {
 		try {
-			return await this.service.createNewTugboat(params);
+			return await this.service.createNewOrder(params)
 		} catch (e) {
 			console.error(e.message);
 			throw new HttpException(

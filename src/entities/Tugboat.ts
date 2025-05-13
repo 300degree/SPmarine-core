@@ -1,51 +1,59 @@
-/** @format */
-
-import { Entity, Column, ChildEntity } from 'typeorm';
+import { Entity, Column } from 'typeorm';
 
 import { BaseEntity } from '@entities/BaseEntity';
-import { StatusType, TugboatType } from '@types';
 
-@Entity({ name: "Tugboats" })
-@ChildEntity()
+@Entity({ name: 'Tugboat' })
 export class Tugboat extends BaseEntity {
-
-        @Column({ type: 'smallint', default: 0 })
+	@Column({ name: 'MAX CAP', type: 'integer', default: 0 })
 	public maxCap: number;
 
-	@Column({ type: 'int8', default: 0 })
+	@Column({ name: 'MAX BARGE', type: 'integer', default: 0 })
 	public maxBarge: number;
 
-	@Column({ type: 'integer', default: 0 })
+	@Column({ name: 'MAX FUEL CON', type: 'integer', default: 0 })
 	public maxFuelCon: number;
 
-	@Column({ type: 'enum', enum: TugboatType, default: TugboatType.SEA })
-	public type: TugboatType;
+	@Column({
+		name: 'TYPE',
+		type: 'enum',
+		enum: ['SEA', 'RIVER'],
+		default: 'SEA',
+	})
+	public type: 'SEA' | 'RIVER';
 
-	@Column({ type: 'float8', default: 0 })
+	@Column({
+		name: 'MIN SPEED',
+		type: 'float',
+		default: 0,
+	})
 	public minSpeed: number;
 
-	@Column({ type: 'float8', default: 0 })
+	@Column({ name: 'MAX SPEED', type: 'float', default: 0 })
 	public maxSpeed: number;
 
-	@Column({ type: 'smallint', default: 0 })
+	@Column({ name: 'RPM', type: 'integer', default: 0 })
 	public rpm: number;
 
-	@Column({ type: 'smallint', default: 0 })
+	@Column({ name: 'HP', type: 'integer', default: 0 })
 	public hp: number;
 
-	@Column({ type: 'float8', default: 0.0 })
+	@Column({ name: 'LAT', type: 'float', default: 0.0 })
 	public last: number;
 
-	@Column({ type: 'float8', default: 0.0 })
+	@Column({ name: 'LNG', type: 'float', default: 0.0 })
 	public long: number;
 
-	@Column({ type: 'enum', enum: StatusType, default: StatusType.SEA })
-	public status: StatusType;
+	@Column({
+		name: 'STATUS',
+		type: 'enum',
+		enum: ['SEA', 'RIVER'],
+		default: 'SEA',
+	})
+	public status: 'SEA' | 'RIVER';
 
-	@Column({ type: 'smallint' })
-	public kilo: number;
+	@Column({ name: 'KM', type: 'integer' })
+	public kilometer: number;
 
-	@Column({ type: 'date' })
+	@Column({ name: 'READY DATETIME', type: 'timestamp' })
 	public readyDateTime: Date;
-
 }
